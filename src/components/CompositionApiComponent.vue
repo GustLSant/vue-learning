@@ -2,6 +2,32 @@
 
 <script lang="ts" setup>
     import { onMounted, ref } from 'vue';
+    import { defineProps } from 'vue';
+
+
+    // primeira forma de usar props
+    const props = defineProps({
+        propMessage: {
+            type: String,
+            default: 'abadabadul padrao valor default',
+        },
+        active: {
+            type: Boolean,
+            required: true,
+        }
+    })
+
+    // segunda forma de usar props
+    // type Props = {
+    //     propMessage?: string
+    // }
+    // const props = defineProps<Props>();
+
+    // terceira forma de usar props (como a primeira, mas com valores padrao)
+    // const props = withDefaults(defineProps<Props>(), {
+    //     propMessage: true
+    // })
+
 
     const status = ref<boolean>(false);
     const tasks = ref<string[]>([
@@ -45,6 +71,12 @@
         <div>
             <p>Status:</p>
             <p>{{ status }}</p>
+        </div>
+
+        <div>
+            <p>Mensagem passada por Prop: <strong>{{ props.propMessage }}</strong></p>
+            <p>//</p>
+            <p>Segundo prop, active: <strong>{{ props.active }}</strong></p>
         </div>
 
         <div>

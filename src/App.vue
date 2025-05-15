@@ -8,7 +8,8 @@
 <template>
   <HelloWorld msg="Vite + Vue" />
   <OptionsApiComponent />
-  <CompositionApiComponent />
+  <!-- <CompositionApiComponent :active="true" /> --> <!-- TEM QUE TER O : PARA O VUE IDENTIFICAR QUE ELE TEM QUE INTERPRETAR O VALOR CONTIDO DENTRO DAS ASPAS -->
+  <CompositionApiComponent active :prop-message="'mensagem passada por prop'" />
 </template>
 
 
